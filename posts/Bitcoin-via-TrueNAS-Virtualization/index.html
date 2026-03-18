@@ -1,0 +1,641 @@
+<!doctype html><html lang="en" data-mode="dark"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta name="theme-color" media="(prefers-color-scheme: light)" content="#f7f7f7"><meta name="theme-color" media="(prefers-color-scheme: dark)" content="#1b1b1e"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><meta name="viewport" content="width=device-width, user-scalable=no initial-scale=1, shrink-to-fit=no, viewport-fit=cover" ><meta name="generator" content="Jekyll v4.4.1" /><meta property="og:title" content="Bitcoin via TrueNAS Virtualization" /><meta property="og:locale" content="en" /><meta name="description" content="Don’t trust, always verify." /><meta property="og:description" content="Don’t trust, always verify." /><link rel="canonical" href="https://www.wtthomas.org/posts/Bitcoin-via-TrueNAS-Virtualization/" /><meta property="og:url" content="https://www.wtthomas.org/posts/Bitcoin-via-TrueNAS-Virtualization/" /><meta property="og:site_name" content="Taylor Thomas" /><meta property="og:image" content="https://www.wtthomas.org/assets/img/posts/2026-03-17 Bitcoin via TrueNAS Virtualization/thumbnail.png" /><meta property="og:type" content="article" /><meta property="article:published_time" content="2026-03-17T04:00:00-04:00" /><meta name="twitter:card" content="summary_large_image" /><meta property="twitter:image" content="https://www.wtthomas.org/assets/img/posts/2026-03-17 Bitcoin via TrueNAS Virtualization/thumbnail.png" /><meta property="twitter:title" content="Bitcoin via TrueNAS Virtualization" /> <script type="application/ld+json"> {"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2026-03-19T04:00:00-04:00","datePublished":"2026-03-17T04:00:00-04:00","description":"Don’t trust, always verify.","headline":"Bitcoin via TrueNAS Virtualization","image":"https://www.wtthomas.org/assets/img/posts/2026-03-17 Bitcoin via TrueNAS Virtualization/thumbnail.png","mainEntityOfPage":{"@type":"WebPage","@id":"https://www.wtthomas.org/posts/Bitcoin-via-TrueNAS-Virtualization/"},"url":"https://www.wtthomas.org/posts/Bitcoin-via-TrueNAS-Virtualization/"}</script><title>Bitcoin via TrueNAS Virtualization | Taylor Thomas</title><link rel="icon" type="image/png" href="/assets/img/favicons/favicon-96x96.png" sizes="96x96"><link rel="icon" type="image/svg+xml" href="/assets/img/favicons/favicon.svg"><link rel="shortcut icon" href="/assets/img/favicons/favicon.ico"><link rel="apple-touch-icon" sizes="180x180" href="/assets/img/favicons/apple-touch-icon.png"><link rel="preconnect" href="https://fonts.googleapis.com" ><link rel="dns-prefetch" href="https://fonts.googleapis.com" ><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="dns-prefetch" href="https://fonts.gstatic.com" ><link rel="preconnect" href="https://cdn.jsdelivr.net" ><link rel="dns-prefetch" href="https://cdn.jsdelivr.net" ><link rel="stylesheet" href="/assets/css/jekyll-theme-chirpy.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400&family=Source+Sans+Pro:wght@400;600;700;900&display=swap"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.2.0/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tocbot@4.36.4/dist/tocbot.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/loading-attribute-polyfill@2.1.1/dist/loading-attribute-polyfill.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox@3.3.0/dist/css/glightbox.min.css"> <script src="/assets/js/dist/theme.min.js"></script> <script defer src="https://cdn.jsdelivr.net/combine/npm/simple-jekyll-search@1.10.0/dest/simple-jekyll-search.min.js,npm/loading-attribute-polyfill@2.1.1/dist/loading-attribute-polyfill.umd.min.js,npm/glightbox@3.3.0/dist/js/glightbox.min.js,npm/clipboard@2.0.11/dist/clipboard.min.js,npm/dayjs@1.11.20/dayjs.min.js,npm/dayjs@1.11.20/locale/en.js,npm/dayjs@1.11.20/plugin/relativeTime.js,npm/dayjs@1.11.20/plugin/localizedFormat.js,npm/tocbot@4.36.4/dist/tocbot.min.js"></script> <script defer src="/assets/js/dist/post.min.js"></script><body><aside aria-label="Sidebar" id="sidebar" class="d-flex flex-column align-items-end"><header class="profile-wrapper"> <a href="/" id="avatar" class="rounded-circle"><img src="/assets/img/avatar.png" width="112" height="112" alt="avatar" onerror="this.style.display='none'"></a> <a class="site-title d-block" href="/">Taylor Thomas</a><p class="site-subtitle fst-italic mb-0">CyberSecurity & Computer Science @ NCSU.</p></header><nav class="flex-column flex-grow-1 w-100 ps-0"><ul class="nav"><li class="nav-item"> <a href="/" class="nav-link"> <i class="fa-fw fas fa-home"></i> <span>HOME</span> </a><li class="nav-item"> <a href="/about/" class="nav-link"> <i class="fa-fw fas fa-info-circle"></i> <span>ABOUT</span> </a><li class="nav-item"> <a href="/cv/" class="nav-link"> <i class="fa-fw fas fa-file-pdf"></i> <span>CV</span> </a><li class="nav-item"> <a href="/tags/" class="nav-link"> <i class="fa-fw fas fa-tags"></i> <span>TAGS</span> </a><li class="nav-item"> <a href="/archives/" class="nav-link"> <i class="fa-fw fas fa-archive"></i> <span>ARCHIVES</span> </a><li class="nav-item"> <a href="/categories/" class="nav-link"> <i class="fa-fw fas fa-stream"></i> <span>CATEGORIES</span> </a></ul></nav><div class="sidebar-bottom d-flex flex-wrap align-items-center w-100"> <a href="https://github.com/wtthoma4" aria-label="github" target="_blank" rel="noopener noreferrer" > <i class="fab fa-github"></i> </a> <a href="https://www.wtthomas.org" aria-label="links" target="_blank" rel="noopener noreferrer" > <i class="fa-solid fa-link"></i> </a> <a href="javascript:location.href = 'mailto:' + ['taylor','wtthomas.org'].join('@')" aria-label="email" > <i class="fas fa-envelope"></i> </a> <a href="https://www.linkedin.com/in/taylor-thomas-ncsu" aria-label="linkedin" target="_blank" rel="noopener noreferrer" > <i class="fab fa-linkedin"></i> </a></div></aside><div id="main-wrapper" class="d-flex justify-content-center"><div class="container d-flex flex-column px-xxl-5"><header id="topbar-wrapper" class="flex-shrink-0" aria-label="Top Bar"><div id="topbar" class="d-flex align-items-center justify-content-between px-lg-3 h-100" ><nav id="breadcrumb" aria-label="Breadcrumb"> <span> <a href="/">Home</a> </span> <span>Bitcoin via TrueNAS Virtualization</span></nav><button type="button" id="sidebar-trigger" class="btn btn-link" aria-label="Sidebar"> <i class="fas fa-bars fa-fw"></i> </button><div id="topbar-title"> Post</div><button type="button" id="search-trigger" class="btn btn-link" aria-label="Search"> <i class="fas fa-search fa-fw"></i> </button> <search id="search" class="align-items-center ms-3 ms-lg-0"> <i class="fas fa-search fa-fw"></i> <input class="form-control" id="search-input" type="search" aria-label="search" autocomplete="off" placeholder="Search..." > </search> <button type="button" class="btn btn-link text-decoration-none" id="search-cancel">Cancel</button></div></header><div class="row flex-grow-1"><main aria-label="Main Content" class="col-12 col-lg-11 col-xl-9 px-md-4"><article class="px-1" data-toc="true"><header><h1 data-toc-skip>Bitcoin via TrueNAS Virtualization</h1><div class="post-meta text-muted"> <span> Posted <time data-ts="1773734400" data-df="ll" data-bs-toggle="tooltip" data-bs-placement="bottom" > Mar 17, 2026 </time> </span> <span> Updated <time data-ts="1773907200" data-df="ll" data-bs-toggle="tooltip" data-bs-placement="bottom" > Mar 19, 2026 </time> </span><div class="mt-3 mb-3"> <a href="/assets/img/posts/2026-03-17 Bitcoin via TrueNAS Virtualization/thumbnail.png" class="popup img-link preview-img shimmer"><img src="/assets/img/posts/2026-03-17 Bitcoin via TrueNAS Virtualization/thumbnail.png" alt="Preview Image" width="1200" height="630" loading="lazy"></a></div><div class="d-flex justify-content-between"> <span> By <em> <a href="https://github.com/wtthoma4">Taylor Thomas</a> </em> </span><div> <span class="readtime" data-bs-toggle="tooltip" data-bs-placement="bottom" title="5558 words" > <em>30 min</em> read</span></div></div></div></header><div id="toc-bar" class="d-flex align-items-center justify-content-between invisible"> <span class="label text-truncate">Bitcoin via TrueNAS Virtualization</span> <button type="button" class="toc-trigger btn me-1"> <i class="fa-solid fa-list-ul fa-fw"></i> </button></div><button id="toc-solo-trigger" type="button" class="toc-trigger btn btn-outline-secondary btn-sm"> <span class="label ps-2 pe-1">Contents</span> <i class="fa-solid fa-angle-right fa-fw"></i> </button> <dialog id="toc-popup" class="p-0"><div class="header d-flex flex-row align-items-center justify-content-between"><div class="label text-truncate py-2 ms-4">Bitcoin via TrueNAS Virtualization</div><button id="toc-popup-close" type="button" class="btn mx-1 my-1 opacity-75"> <i class="fas fa-close"></i> </button></div><div id="toc-popup-content" class="px-4 py-3 pb-4"></div></dialog><div class="content"><p>I need a Bitcoin node. I have a TrueNAS server. Let’s figure it out!</p><h2 id="motivation"><span class="me-2">Motivation</span><a href="#motivation" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2><p>I am working on a project that requires extensive interactions with the Bitcoin mainnet, testnet, and a mempool. I need a box in my development environment and a standardized build procedure. I decided to document the whole process!</p><h2 id="available-hardware"><span class="me-2">Available Hardware</span><a href="#available-hardware" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2><p>I have a TrueNAS server with plenty of CPU and RAM headroom to take on this project. The sketchy area is disk space. I bought a 1TB SSD for this project, and that will suffice for now, but within a few years a 1TB drive will no longer hold the unpruned blockchain plus the chainstate data.</p><p>ZFS doesn’t like single-drive pools, and also doesn’t like full drives, and the current blockchain size will be cutting it close. As the blockchain grows, I expect the pool’s performance to worsen.</p><p>I could buy another drive to set up a mirror, but storage is expensive and I don’t need two copies of the blockchain. If the SSD explodes tomorrow, I can follow this guide to recover my environment and sync the blockchain from scratch. When the size of the blockchain finally exceeds my 1TB SSD, the cheapest solution will be to extend the pool across a second 1TB drive. This is not an ideal setup, but all great tech spaghetti begins with yesterday’s budget consciousness, so at least I’ll have something to write an article about in the future!</p><h3 id="why-not-docker"><span class="me-2">Why Not Docker?</span><a href="#why-not-docker" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3><p>TrueNAS Scale has excellent Docker support, and I could use the community docker-bitcoind image <a href="https://apps.truenas.com/catalog/bitcoind/">https://apps.truenas.com/catalog/bitcoind/</a>.</p><p>There are a few downsides to using Docker. First, iXSystems has pushed painful, breaking updates to the TrueNAS apps ecosystem in the past. This is not as troublesome for stateless microservices and simple web applications, but it could be a serious issue for a monolith like bitcoind.</p><p>Additionally, VM security and isolation is simply superior to Docker security and isolation. Bitcoin nodes are quite noisy and reach out to many third parties, by design, and containing this exposure within a VM is an appropriate isolation measure. Rather than configuring TrueNAS permissions for the dataset, running application, network stack, etc., we can just give bitcoind its own file system and users.</p><p>Furthermore, because we can use UEFI + virtio, our VM will be vendor-agnostic and can be easily ported to Proxmox or VMWare in the future.</p><p>Lastly, Docker apps on TrueNAS Scale route all disk I/O through ZFS, which is a huge performance hit for large sequential writes (like the initial block download). By using a VM on a ZVOL (raw block device), we can write these massive amounts of data without the copy-on-write ZFS overhead. This also avoids the file-level permissioning nightmare that commonly impacts TrueNAS Docker applications and are difficult to troubleshoot.</p><h2 id="creating-the-vm"><span class="me-2">Creating the VM</span><a href="#creating-the-vm" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2><p>First, create a ZFS pool so we have a place to store out VM and our data. Your hardware might be different, so differences at this stage can be safely ignored. Make sure you have enough storage for the current (and near-term future) size of the blockchain and the chainstate data. The result of my pool configuration is below:</p><p><a href="/assets/img/posts/2026-03-17 Bitcoin via TrueNAS Virtualization/vm2.png" class="popup img-link shimmer"><img src="/assets/img/posts/2026-03-17 Bitcoin via TrueNAS Virtualization/vm2.png" alt="Create Pool GUI Dialogue" loading="lazy"></a></p><p>Step two is to select an operating system for our purpose and download it. I chose <code class="language-plaintext highlighter-rouge">Debian NetInst</code> because it’s lightweight (low disk usage by the OS itself and low RAM usage at idle, ~400MB). You can also install NetInst without a GUI, which is unnecessary for this project and helps a lot on the resource side.</p><p>To download, visit Debian’s download page <a href="https://cdimage.debian.org/debian-cd/current/amd64/iso-cd/">https://cdimage.debian.org/debian-cd/current/amd64/iso-cd/</a>. Download the <code class="language-plaintext highlighter-rouge">SHA256SUMS</code> and <code class="language-plaintext highlighter-rouge">debian-&lt;version&gt;-amd64-netinst.iso</code> files. Take the extra security step to verify the integrity of the file. This isn’t foolproof, but it’s a good practice and something we’ll repeat more in-depth later. I downloaded version <code class="language-plaintext highlighter-rouge">13.3.0</code>. On windows:</p><div class="language-powershell highlighter-rouge"><div class="code-header"> <span data-label-text="Powershell"><i class="fas fa-code fa-fw small"></i></span> <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+</pre><td class="rouge-code"><pre><span class="err">$</span><span class="w"> </span><span class="n">Get-FileHash</span><span class="w"> </span><span class="o">.</span><span class="nx">\debian-13.3.0-amd64-netinst.iso</span><span class="w">
+
+</span><span class="n">Algorithm</span><span class="w">       </span><span class="nx">Hash</span><span class="w">                                                             
+</span><span class="o">---------</span><span class="w">       </span><span class="o">----</span><span class="w">                                                             
+</span><span class="n">SHA256</span><span class="w">          </span><span class="nx">C9F09D24B7E834E6834F2FFA565B33D6F1F540D04BD25C79AD9953BC79A8AC02</span><span class="w"> 
+</span></pre></table></code></div></div><p>Compare that SHA256 value with the corresponding value in the <code class="language-plaintext highlighter-rouge">SHA256SUMS</code> file. For <code class="language-plaintext highlighter-rouge">13.3.0</code>, it was:</p><div class="language-plaintext highlighter-rouge"><div class="code-header"> <span data-label-text="Plaintext"><i class="fas fa-code fa-fw small"></i></span> <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre><td class="rouge-code"><pre>c9f09d24b7e834e6834f2ffa565b33d6f1f540d04bd25c79ad9953bc79a8ac02  debian-13.3.0-amd64-netinst.iso
+</pre></table></code></div></div><p>So we have a match!</p><p>Step three is to spin up the VM in the TrueNAS Scale web interface. In the sidebar, navigate to <code class="language-plaintext highlighter-rouge">Virtualization</code>. In the top-right corner, click the blue <code class="language-plaintext highlighter-rouge">Add</code> button. This will open a dialogue bar on the right-hand side of the screen which walks you through creating the VM. Change the <code class="language-plaintext highlighter-rouge">Guest Operating System</code> to <code class="language-plaintext highlighter-rouge">Linux</code>. Set the <code class="language-plaintext highlighter-rouge">Name</code> to whatever you want. Pick a good password. Everything else can stay as default. See my configuration below:</p><p><a href="/assets/img/posts/2026-03-17 Bitcoin via TrueNAS Virtualization/vm3.png" class="popup img-link shimmer"><img src="/assets/img/posts/2026-03-17 Bitcoin via TrueNAS Virtualization/vm3.png" alt="VM Configuration 1" loading="lazy"></a></p><p>Next, we configure the resources we’re giving the VM. We need to distinguish between two phases of the Bitcoin node lifescycle: <code class="language-plaintext highlighter-rouge">IBD (initial block download)</code> and <code class="language-plaintext highlighter-rouge">normal operation</code>. During <code class="language-plaintext highlighter-rouge">IBD</code>, the node will consume as much CPU, RAM, I/O, and network as you give it, until it reaches a bottleneck somewhere. I most often see bottlenecks in CPU or disk write speed. During <code class="language-plaintext highlighter-rouge">normal operation</code>, your node will consume hardly anything, it’s very lightweight. The <code class="language-plaintext highlighter-rouge">IBD</code> can sometimes take north of a week if the node has a bottleneck somewhere. To achieve a faster <code class="language-plaintext highlighter-rouge">IBD</code>, you can increase the <code class="language-plaintext highlighter-rouge">CPU</code> resources, specifically <code class="language-plaintext highlighter-rouge">Cores</code> (the <code class="language-plaintext highlighter-rouge">IBD</code> does not benefit greatly from hyperthreaded cores aka <code class="language-plaintext highlighter-rouge">Threads</code> or virtual sockets aka <code class="language-plaintext highlighter-rouge">vCPUs</code>, it needs bare metal cores). If you choose to speed up the <code class="language-plaintext highlighter-rouge">IBD</code> by adding more <code class="language-plaintext highlighter-rouge">Cores</code>, make sure you reduce this back to one after the <code class="language-plaintext highlighter-rouge">IBD</code> is complete.</p><p>I gave my node one <code class="language-plaintext highlighter-rouge">Core</code>, <code class="language-plaintext highlighter-rouge">Thread</code>, and <code class="language-plaintext highlighter-rouge">vCPU</code>. I gave my node <code class="language-plaintext highlighter-rouge">4 GiB</code> of RAM and set a minimum (reserved) RAM pool at <code class="language-plaintext highlighter-rouge">2 GiB</code> (that guarantees at least 2 GiB will be available and TrueNAS will not choke the VM). See my configuration below:</p><p><a href="/assets/img/posts/2026-03-17 Bitcoin via TrueNAS Virtualization/vm4a.png" class="popup img-link shimmer"><img src="/assets/img/posts/2026-03-17 Bitcoin via TrueNAS Virtualization/vm4a.png" alt="VM Configuration 2" loading="lazy"></a></p><p>Next, we’re going to assign the disk to <code class="language-plaintext highlighter-rouge">bitcoin-pool</code> (or whatever you named your pool) and set the size to <code class="language-plaintext highlighter-rouge">50 GiB</code>. Make sure <code class="language-plaintext highlighter-rouge">Create a new disk image</code> is the selected radial option and <code class="language-plaintext highlighter-rouge">Select Disk Type</code> is set to <code class="language-plaintext highlighter-rouge">VirtIO</code>. See my configuration below:</p><blockquote class="prompt-info"><p>Do not set the size to the whole disk size! Start with a small pool size to accomodate only the guest OS. Doing so will make the file system configuration much easier later.</p></blockquote><p><a href="/assets/img/posts/2026-03-17 Bitcoin via TrueNAS Virtualization/vm5.png" class="popup img-link shimmer"><img src="/assets/img/posts/2026-03-17 Bitcoin via TrueNAS Virtualization/vm5.png" alt="VM Configuration 3" loading="lazy"></a></p><p>Next, we need to tell TrueNAS how to give our VM network access. Set the <code class="language-plaintext highlighter-rouge">Adapter Type</code> to <code class="language-plaintext highlighter-rouge">VirtIO</code>, leave the <code class="language-plaintext highlighter-rouge">MAC Address</code> to the auto-generated one, and pick your host ethernet adapter interface from the <code class="language-plaintext highlighter-rouge">Attach NIC</code> dropdown list (you most likely will only have one option to choose). See my configuration below:</p><p><a href="/assets/img/posts/2026-03-17 Bitcoin via TrueNAS Virtualization/vm6.png" class="popup img-link shimmer"><img src="/assets/img/posts/2026-03-17 Bitcoin via TrueNAS Virtualization/vm6.png" alt="VM Configuration 4" loading="lazy"></a></p><p>Next, we need to give TrueNAS the installation media for our operating system of choice. Click the <code class="language-plaintext highlighter-rouge">Choose File</code> upload button and navigate to the <code class="language-plaintext highlighter-rouge">iso</code> file you downloaded from Debian. This upload may take some time to complete, and the web interface may appear to be hung. <strong>Do not refresh or click back! You will have to repeat all the steps.</strong></p><blockquote class="prompt-info"><p>I highly encourage you to use the built-in upload button on the dialogue via the TrueNAS Scale web interface rather than trying to move the iso onto a network share. Even if you use the TrueNAS shell to move the file from the share onto an internal directory, you still have to reconfigure the permissions for all different processes and utilities that need to touch it during the VM creation process. TrueNAS will do all of this for you if you just upload the iso directly.</p></blockquote><p><a href="/assets/img/posts/2026-03-17 Bitcoin via TrueNAS Virtualization/vm7a.png" class="popup img-link shimmer"><img src="/assets/img/posts/2026-03-17 Bitcoin via TrueNAS Virtualization/vm7a.png" alt="VM Configuration 5" loading="lazy"></a></p><p>You can leave the GPU section unchanged (empty):</p><p><a href="/assets/img/posts/2026-03-17 Bitcoin via TrueNAS Virtualization/vm8.png" class="popup img-link shimmer"><img src="/assets/img/posts/2026-03-17 Bitcoin via TrueNAS Virtualization/vm8.png" alt="VM Configuration 6" loading="lazy"></a></p><p>You should now see your VM in the list of available machines! If you click the dropdown arrow, you should see the configuration . Double check the CPU, and RAM. If the VM is not already started, click the <code class="language-plaintext highlighter-rouge">Start</code> button. Once the VM is running, click the <code class="language-plaintext highlighter-rouge">Display</code> button:</p><p><a href="/assets/img/posts/2026-03-17 Bitcoin via TrueNAS Virtualization/vm11a.png" class="popup img-link shimmer"><img src="/assets/img/posts/2026-03-17 Bitcoin via TrueNAS Virtualization/vm11a.png" alt="VM Configuration 9" loading="lazy"></a></p><h2 id="configuring-debian"><span class="me-2">Configuring Debian</span><a href="#configuring-debian" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2><h3 id="initial-set-up"><span class="me-2">Initial Set Up</span><a href="#initial-set-up" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3><p>We will use TrueNAS’ built-in Spice display for the initial GUI set up. When you first open it (by clicking the <code class="language-plaintext highlighter-rouge">Display</code> button in the VM list in the TrueNAS web interface), you will put in the password you submitted earlier in the TrueNAS VM set up. After that, you should see this:</p><p><a href="/assets/img/posts/2026-03-17 Bitcoin via TrueNAS Virtualization/1.png" class="popup img-link shimmer"><img src="/assets/img/posts/2026-03-17 Bitcoin via TrueNAS Virtualization/1.png" alt="SPICE 1" loading="lazy"></a></p><p>Use your keyboard to select <code class="language-plaintext highlighter-rouge">Install</code>. On the next screen, select <code class="language-plaintext highlighter-rouge">English - English</code>:</p><p><a href="/assets/img/posts/2026-03-17 Bitcoin via TrueNAS Virtualization/2.png" class="popup img-link shimmer"><img src="/assets/img/posts/2026-03-17 Bitcoin via TrueNAS Virtualization/2.png" alt="SPICE 2" loading="lazy"></a></p><p>Next, pick your locale:</p><p><a href="/assets/img/posts/2026-03-17 Bitcoin via TrueNAS Virtualization/3.png" class="popup img-link shimmer"><img src="/assets/img/posts/2026-03-17 Bitcoin via TrueNAS Virtualization/3.png" alt="SPICE 3" loading="lazy"></a></p><p>Next, pick your keyboard layout:</p><p><a href="/assets/img/posts/2026-03-17 Bitcoin via TrueNAS Virtualization/4.png" class="popup img-link shimmer"><img src="/assets/img/posts/2026-03-17 Bitcoin via TrueNAS Virtualization/4.png" alt="SPICE 4" loading="lazy"></a></p><p>Next, pick your <code class="language-plaintext highlighter-rouge">hostname</code>. I chose <code class="language-plaintext highlighter-rouge">debian</code>:</p><p><a href="/assets/img/posts/2026-03-17 Bitcoin via TrueNAS Virtualization/5.png" class="popup img-link shimmer"><img src="/assets/img/posts/2026-03-17 Bitcoin via TrueNAS Virtualization/5.png" alt="SPICE 5" loading="lazy"></a></p><p>When asked about your domain name, you can safely leave this blank and continue:</p><p><a href="/assets/img/posts/2026-03-17 Bitcoin via TrueNAS Virtualization/6.png" class="popup img-link shimmer"><img src="/assets/img/posts/2026-03-17 Bitcoin via TrueNAS Virtualization/6.png" alt="SPICE 6" loading="lazy"></a></p><p>Next, pick a good root password and confirm it:</p><p><a href="/assets/img/posts/2026-03-17 Bitcoin via TrueNAS Virtualization/7.png" class="popup img-link shimmer"><img src="/assets/img/posts/2026-03-17 Bitcoin via TrueNAS Virtualization/7.png" alt="SPICE 7" loading="lazy"></a></p><p><a href="/assets/img/posts/2026-03-17 Bitcoin via TrueNAS Virtualization/8.png" class="popup img-link shimmer"><img src="/assets/img/posts/2026-03-17 Bitcoin via TrueNAS Virtualization/8.png" alt="SPICE 8" loading="lazy"></a></p><p>Next, pick a <code class="language-plaintext highlighter-rouge">username</code> and <code class="language-plaintext highlighter-rouge">password</code> for yourself. This is how you will interact with the system. This user will have full control of the system as well as remote login capabilities, so pick a <strong>good</strong> password and confirm it:</p><p><a href="/assets/img/posts/2026-03-17 Bitcoin via TrueNAS Virtualization/10.png" class="popup img-link shimmer"><img src="/assets/img/posts/2026-03-17 Bitcoin via TrueNAS Virtualization/10.png" alt="SPICE 10" loading="lazy"></a> <a href="/assets/img/posts/2026-03-17 Bitcoin via TrueNAS Virtualization/11.png" class="popup img-link shimmer"><img src="/assets/img/posts/2026-03-17 Bitcoin via TrueNAS Virtualization/11.png" alt="SPICE 11" loading="lazy"></a> <a href="/assets/img/posts/2026-03-17 Bitcoin via TrueNAS Virtualization/12.png" class="popup img-link shimmer"><img src="/assets/img/posts/2026-03-17 Bitcoin via TrueNAS Virtualization/12.png" alt="SPICE 12" loading="lazy"></a></p><p>Next, pick your time zone:</p><p><a href="/assets/img/posts/2026-03-17 Bitcoin via TrueNAS Virtualization/13.png" class="popup img-link shimmer"><img src="/assets/img/posts/2026-03-17 Bitcoin via TrueNAS Virtualization/13.png" alt="SPICE 13" loading="lazy"></a></p><p>Now, we need to configure our disks. This is where the initial VM size of ~50 GiB comes in very handy. We can instruct the wizard to just use the entire disk, we don’t need to try and configure partitions here. Select <code class="language-plaintext highlighter-rouge">vda</code> (should be the only disk you can select), choose <code class="language-plaintext highlighter-rouge">All files in one partition</code> for the scheme, then <code class="language-plaintext highlighter-rouge">Finish partitioning and write changes to the disk</code>:</p><p><a href="/assets/img/posts/2026-03-17 Bitcoin via TrueNAS Virtualization/15.png" class="popup img-link shimmer"><img src="/assets/img/posts/2026-03-17 Bitcoin via TrueNAS Virtualization/15.png" alt="SPICE 15" loading="lazy"></a> <a href="/assets/img/posts/2026-03-17 Bitcoin via TrueNAS Virtualization/16.png" class="popup img-link shimmer"><img src="/assets/img/posts/2026-03-17 Bitcoin via TrueNAS Virtualization/16.png" alt="SPICE 16" loading="lazy"></a> <a href="/assets/img/posts/2026-03-17 Bitcoin via TrueNAS Virtualization/17.png" class="popup img-link shimmer"><img src="/assets/img/posts/2026-03-17 Bitcoin via TrueNAS Virtualization/17.png" alt="SPICE 17" loading="lazy"></a></p><p>Confirm and choose <code class="language-plaintext highlighter-rouge">yes</code>:</p><p><a href="/assets/img/posts/2026-03-17 Bitcoin via TrueNAS Virtualization/18.png" class="popup img-link shimmer"><img src="/assets/img/posts/2026-03-17 Bitcoin via TrueNAS Virtualization/18.png" alt="SPICE 18" loading="lazy"></a></p><p>When prompted to scan for extra installation media, choose <code class="language-plaintext highlighter-rouge">no</code>:</p><p><a href="/assets/img/posts/2026-03-17 Bitcoin via TrueNAS Virtualization/19.png" class="popup img-link shimmer"><img src="/assets/img/posts/2026-03-17 Bitcoin via TrueNAS Virtualization/19.png" alt="SPICE 19" loading="lazy"></a></p><p>Choose the location closest to you for best package manager performance.</p><p><a href="/assets/img/posts/2026-03-17 Bitcoin via TrueNAS Virtualization/20.png" class="popup img-link shimmer"><img src="/assets/img/posts/2026-03-17 Bitcoin via TrueNAS Virtualization/20.png" alt="SPICE 20" loading="lazy"></a></p><p>If you’re lucky enough to have a local mirror, choose that one, otherwise, the default <code class="language-plaintext highlighter-rouge">deb.debian.org</code> is fine:</p><p><a href="/assets/img/posts/2026-03-17 Bitcoin via TrueNAS Virtualization/21.png" class="popup img-link shimmer"><img src="/assets/img/posts/2026-03-17 Bitcoin via TrueNAS Virtualization/21.png" alt="SPICE 21" loading="lazy"></a></p><p>Leave the proxy configuration blank and continue:</p><p><a href="/assets/img/posts/2026-03-17 Bitcoin via TrueNAS Virtualization/22.png" class="popup img-link shimmer"><img src="/assets/img/posts/2026-03-17 Bitcoin via TrueNAS Virtualization/22.png" alt="SPICE 22" loading="lazy"></a></p><p>Choose <code class="language-plaintext highlighter-rouge">no</code> when prompted for voluntary data collection:</p><p><a href="/assets/img/posts/2026-03-17 Bitcoin via TrueNAS Virtualization/23.png" class="popup img-link shimmer"><img src="/assets/img/posts/2026-03-17 Bitcoin via TrueNAS Virtualization/23.png" alt="SPICE 23" loading="lazy"></a></p><p>When prompted for which software to install, play close attention. Unselect the <code class="language-plaintext highlighter-rouge">GNOME</code> (or any selected entry under <code class="language-plaintext highlighter-rouge">Debian desktop environment</code>) option using the spacebar. The only two options selected should be <code class="language-plaintext highlighter-rouge">SSH server</code> and <code class="language-plaintext highlighter-rouge">standard system utilities</code>:</p><p><a href="/assets/img/posts/2026-03-17 Bitcoin via TrueNAS Virtualization/24.png" class="popup img-link shimmer"><img src="/assets/img/posts/2026-03-17 Bitcoin via TrueNAS Virtualization/24.png" alt="SPICE 24" loading="lazy"></a></p><p>On the final page, choose continue.</p><blockquote class="prompt-info"><p>The system will not boot yet. After the reboot, you will go through the same prompts again. This is normal! See the next section for further instructions.</p></blockquote><h3 id="configuring-boot-and-disks"><span class="me-2">Configuring Boot and Disks</span><a href="#configuring-boot-and-disks" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3><p>After the initial set up, we need to remove the <code class="language-plaintext highlighter-rouge">iso</code> to get our VM to boot into the actual OS and not the installation media.</p><p>Navigate to the TrueNAS Virtualization page and click the <code class="language-plaintext highlighter-rouge">Devices</code> button on your VM. You will see four entries. Click the three dots on the right-hand side corresponding to the <code class="language-plaintext highlighter-rouge">CD-ROM</code> entry (which should also have <code class="language-plaintext highlighter-rouge">Order</code> of <code class="language-plaintext highlighter-rouge">1000</code>) and click <code class="language-plaintext highlighter-rouge">Delete</code>:</p><p><a href="/assets/img/posts/2026-03-17 Bitcoin via TrueNAS Virtualization/26.png" class="popup img-link shimmer"><img src="/assets/img/posts/2026-03-17 Bitcoin via TrueNAS Virtualization/26.png" alt="VM Configuration 26" loading="lazy"></a></p><p>Click <code class="language-plaintext highlighter-rouge">Delete Device</code>:</p><p><a href="/assets/img/posts/2026-03-17 Bitcoin via TrueNAS Virtualization/27.png" class="popup img-link shimmer"><img src="/assets/img/posts/2026-03-17 Bitcoin via TrueNAS Virtualization/27.png" alt="VM Configuration 27" loading="lazy"></a></p><p>Now, reboot the VM.</p><p>After the VM has rebooted, click the <code class="language-plaintext highlighter-rouge">Display</code> button. You should now see the Debian login screen instead of the set up menus:</p><p><a href="/assets/img/posts/2026-03-17 Bitcoin via TrueNAS Virtualization/28.png" class="popup img-link shimmer"><img src="/assets/img/posts/2026-03-17 Bitcoin via TrueNAS Virtualization/28.png" alt="SPICE 28" loading="lazy"></a></p><p>We now have a working Debian VM! Shut it down so we can make a few changes.</p><p>Next, we need to give our VM access to the remainder of the storage space from our pool. Navigate to TrueNAS &gt; Datasets and find the pool we created earlier. The pool should have one entry: a ZVOL with the name of your VM as the prefix. Click on the ZVOL then click <code class="language-plaintext highlighter-rouge">Edit Zvol</code>.</p><p>Change the <code class="language-plaintext highlighter-rouge">Size for this Zvol</code> to the maximum that you can. For me that was <code class="language-plaintext highlighter-rouge">880 GiB</code>. Check the <code class="language-plaintext highlighter-rouge">Force size</code> box and click <code class="language-plaintext highlighter-rouge">Save</code>:</p><p><a href="/assets/img/posts/2026-03-17 Bitcoin via TrueNAS Virtualization/29.png" class="popup img-link shimmer"><img src="/assets/img/posts/2026-03-17 Bitcoin via TrueNAS Virtualization/29.png" alt="VM Configuration 29" loading="lazy"></a></p><p>Power the VM back on. Now it’s time to SSH into the VM. Depending on how your network is configured, you may be able to do this using the <code class="language-plaintext highlighter-rouge">hostname</code> you configured in the initial set up. Alternatively, you may need to log in to your router/firewall/switch and identify the IP address your VM has been assigned by DHCP.</p><div class="language-bash highlighter-rouge"><div class="code-header"> <span data-label-text="Shell"><i class="fas fa-code fa-fw small"></i></span> <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+</pre><td class="rouge-code"><pre><span class="nv">$ </span>ssh username@&lt;<span class="nb">hostname</span>|ip&gt;
+username@&lt;<span class="nb">hostname</span>|ip&gt; password:
+Linux debian 6.12.73+deb13-amd64 <span class="c">#1 SMP PREEMPT_DYNAMIC Debian 6.12.73-1 (2026-02-17) x86_64</span>
+
+The programs included with the Debian GNU/Linux system are free software<span class="p">;</span>
+the exact distribution terms <span class="k">for </span>each program are described <span class="k">in </span>the
+individual files <span class="k">in</span> /usr/share/doc/<span class="k">*</span>/copyright.
+
+Debian GNU/Linux comes with ABSOLUTELY NO WARRANTY, to the extent
+permitted by applicable law.
+Last login: Sun Mar  8 11:40:01 2026 from 192.168.1.147
+username@&lt;<span class="nb">hostname</span>|ip&gt;:~<span class="err">$</span>
+</pre></table></code></div></div><p>For the rest of this article, you will see <code class="language-plaintext highlighter-rouge">taylor@debian</code> because that is the username and hostname I chose.</p><p>So now our VM should have access to the whole drive. We can check this with the <code class="language-plaintext highlighter-rouge">lsblk</code> command:</p><div class="language-bash highlighter-rouge"><div class="code-header"> <span data-label-text="Shell"><i class="fas fa-code fa-fw small"></i></span> <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+</pre><td class="rouge-code"><pre>taylor@debian:~<span class="nv">$ </span>lsblk
+NAME   MAJ:MIN RM  SIZE RO TYPE MOUNTPOINTS
+vda    254:0    0  840G  0 disk
+├─vda1 254:1    0  976M  0 part /boot/efi
+├─vda2 254:2    0 46.5G  0 part /
+└─vda3 254:3    0  2.6G  0 part <span class="o">[</span>SWAP]
+</pre></table></code></div></div><p>We can see that the <code class="language-plaintext highlighter-rouge">vda</code> drive now has <code class="language-plaintext highlighter-rouge">840G</code> of space, but only about <code class="language-plaintext highlighter-rouge">50GiB</code> is allocated. This is ideal, because now we can cleanly assign the remaining space for Bitcoin Core data.</p><p>First, create a new partition to use the new space using the <code class="language-plaintext highlighter-rouge">sudo fdisk /dev/vda</code> command.</p><div class="language-bash highlighter-rouge"><div class="code-header"> <span data-label-text="Shell"><i class="fas fa-code fa-fw small"></i></span> <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+</pre><td class="rouge-code"><pre>taylor@debian:~<span class="nv">$ </span><span class="nb">sudo </span>fdisk /dev/vda
+
+Welcome to fdisk <span class="o">(</span>util-linux 2.41<span class="o">)</span><span class="nb">.</span>
+Changes will remain <span class="k">in </span>memory only, <span class="k">until </span>you decide to write them.
+Be careful before using the write command.
+
+GPT PMBR size mismatch <span class="o">(</span>104857599 <span class="o">!=</span> 1761607679<span class="o">)</span> will be corrected by write.
+The backup GPT table is not on the end of the device. This problem will be corrected by write.
+This disk is currently <span class="k">in </span>use - repartitioning is probably a bad idea.
+It<span class="s1">'s recommended to umount all file systems, and swapoff all swap
+partitions on this disk.
+...
+</span></pre></table></code></div></div><p>When prompted for the command, input <code class="language-plaintext highlighter-rouge">n</code> then put in a partition number of <code class="language-plaintext highlighter-rouge">4</code> (1-3 are already occupied):</p><div class="language-console highlighter-rouge"><div class="code-header"> <span data-label-text="Console"><i class="fas fa-code fa-fw small"></i></span> <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+</pre><td class="rouge-code"><pre><span class="go">Command (m for help): n
+Partition number (4-128, default 4): 4
+First sector (104855552-1761607646, default 104855552):
+Last sector, +/-sectors or +/-size{K,M,G,T,P} (104855552-1761607646, default 1761605631):
+
+Created a new partition 4 of type 'Linux filesystem' and of size 790 GiB.
+</span><span class="c">...
+</span></pre></table></code></div></div><p>When prompted for your next command, input <code class="language-plaintext highlighter-rouge">w</code>. This will write your new partition to the disk. <code class="language-plaintext highlighter-rouge">fdisk</code> will exit back to the shell when this is done:</p><div class="language-console highlighter-rouge"><div class="code-header"> <span data-label-text="Console"><i class="fas fa-code fa-fw small"></i></span> <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+</pre><td class="rouge-code"><pre><span class="go">Command (m for help): w
+The partition table has been altered.
+Syncing disks.
+
+</span><span class="gp">taylor@debian:~$</span><span class="w">
+</span></pre></table></code></div></div><p>Next let’s verify that <code class="language-plaintext highlighter-rouge">vda4</code> was created as expected. Use the <code class="language-plaintext highlighter-rouge">lsblk</code> command again:</p><div class="language-console highlighter-rouge"><div class="code-header"> <span data-label-text="Console"><i class="fas fa-code fa-fw small"></i></span> <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+</pre><td class="rouge-code"><pre><span class="gp">taylor@debian:~$</span><span class="w"> </span>lsblk
+<span class="go">NAME   MAJ:MIN RM  SIZE RO TYPE MOUNTPOINTS
+vda    254:0    0  840G  0 disk
+├─vda1 254:1    0  976M  0 part /boot/efi
+├─vda2 254:2    0 46.5G  0 part /
+├─vda3 254:3    0  2.6G  0 part [SWAP]
+└─vda4 254:4    0  790G  0 part
+</span></pre></table></code></div></div><p>We can see that <code class="language-plaintext highlighter-rouge">vda</code> took up the <code class="language-plaintext highlighter-rouge">790G</code> of unallocated new space. Perfect.</p><p>Next, we need to format the partition and create a mount point we can give to our Bitcoin Core node.</p><p>Run <code class="language-plaintext highlighter-rouge">sudo mkfs.ext4 /dev/vda4</code> to format the new space:</p><div class="language-console highlighter-rouge"><div class="code-header"> <span data-label-text="Console"><i class="fas fa-code fa-fw small"></i></span> <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+</pre><td class="rouge-code"><pre><span class="gp">taylor@debian:~$</span><span class="w"> </span><span class="nb">sudo </span>mkfs.ext4 /dev/vda4
+<span class="go">mke2fs 1.47.2 (1-Jan-2025)
+Discarding device blocks: done
+Creating filesystem with 207093760 4k blocks and 51773440 inodes
+Filesystem UUID: f7461174-1a26-4590-a1d0-6f2b2d63189f
+Superblock backups stored on blocks:
+        32768, 98304, 163840, 229376, 294912, 819200, 884736, 1605632, 2654208,
+        4096000, 7962624, 11239424, 20480000, 23887872, 71663616, 78675968,
+        102400000
+
+Allocating group tables: done
+Writing inode tables: done
+Creating journal (262144 blocks): done
+Writing superblocks and filesystem accounting information: done
+</span></pre></table></code></div></div><p>Run <code class="language-plaintext highlighter-rouge">sudo mkdir -p /mnt/bitcoin</code> to set up the destination folder:</p><div class="language-console highlighter-rouge"><div class="code-header"> <span data-label-text="Console"><i class="fas fa-code fa-fw small"></i></span> <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre><td class="rouge-code"><pre><span class="gp">taylor@debian:~$</span><span class="w"> </span><span class="nb">sudo mkdir</span> <span class="nt">-p</span> /mnt/bitcoin
+</pre></table></code></div></div><p>Now, to create the actual mount point, we need to get the internal ID of the <code class="language-plaintext highlighter-rouge">vda4</code> partition. Technically you can use the device name of <code class="language-plaintext highlighter-rouge">/dev/vda4</code>, but these assignments are at the mercy of the OS and might change. For a truly stable mount, we need to use the UUID. To get it, run <code class="language-plaintext highlighter-rouge">sudo blkid /dev/vda4</code>:</p><div class="language-console highlighter-rouge"><div class="code-header"> <span data-label-text="Console"><i class="fas fa-code fa-fw small"></i></span> <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+</pre><td class="rouge-code"><pre><span class="gp">taylor@debian:~$</span><span class="w"> </span><span class="nb">sudo </span>blkid /dev/vda4
+<span class="go">/dev/vda4: UUID="f7461174-1a26-4590-a1d0-6f2b2d63189f" BLOCK_SIZE="4096" TYPE="ext4" PARTUUID="2e96b7ee-c584-463a-9fe1-b2a845b93811"
+</span></pre></table></code></div></div><p>Now that we have the UUID <code class="language-plaintext highlighter-rouge">f7461174-1a26-4590-a1d0-6f2b2d63189f</code>, we need to edit the <code class="language-plaintext highlighter-rouge">/etc/fstab</code> file. We will use a text editor called Nano to make these this small change. The <code class="language-plaintext highlighter-rouge">fstab</code> file (filesystem table) tells linux when, where, and how to create mount points to the underlying file system. In order to access our newly formatted partition via a path name like <code class="language-plaintext highlighter-rouge">/mnt/bitcoin</code>, we need to make sure linux will reliably create the link between the two.</p><div class="language-console highlighter-rouge"><div class="code-header"> <span data-label-text="Console"><i class="fas fa-code fa-fw small"></i></span> <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre><td class="rouge-code"><pre><span class="gp">taylor@debian:~$</span><span class="w"> </span><span class="nb">sudo </span>nano /etc/fstab
+</pre></table></code></div></div><p>Once you’re inside Nano editing the <code class="language-plaintext highlighter-rouge">/etc/fstab</code> file, scroll to the bottom and add a new entry. I recommend leaving a comment above by using the pound symbol <code class="language-plaintext highlighter-rouge">#</code> and saying when and why you created this mount point. See the template below, you can copy it excplicitly and change the UUID:</p><div class="language-console highlighter-rouge"><div class="code-header"> <span data-label-text="Console"><i class="fas fa-code fa-fw small"></i></span> <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+</pre><td class="rouge-code"><pre><span class="gp">#</span><span class="w"> </span>new mount point <span class="k">for</span> /mnt/bitcoin <span class="nt">-taylor</span> 2026-03-01
+<span class="go">UUID=f7461174-1a26-4590-a1d0-6f2b2d63189f /mnt/bitcoin ext4 defaults,noatime,nofail 0 2
+</span></pre></table></code></div></div><p>When you’re finished, hit <code class="language-plaintext highlighter-rouge">Ctrl + X</code> then <code class="language-plaintext highlighter-rouge">Y</code> to exit out of Nano while saving your changes.</p><p>Let’s check success. Use <code class="language-plaintext highlighter-rouge">sudo mount -a</code> to force Linux to recreate all the mount points, then <code class="language-plaintext highlighter-rouge">df -h /mnt/bitcoin</code> to see the status of the new mount we just created:</p><div class="language-console highlighter-rouge"><div class="code-header"> <span data-label-text="Console"><i class="fas fa-code fa-fw small"></i></span> <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+</pre><td class="rouge-code"><pre><span class="gp">taylor@debian:~$</span><span class="w"> </span><span class="nb">sudo </span>mount <span class="nt">-a</span>
+<span class="gp">taylor@debian:~$</span><span class="w"> </span><span class="nb">df</span> <span class="nt">-h</span> /mnt/bitcoin
+<span class="go">Filesystem      Size  Used Avail Use% Mounted on
+/dev/vda4       777G  2.1M  738G   1% /mnt/bitcoin
+</span></pre></table></code></div></div><p>Great! Now we have all the prerequisite work completed. We can proceed to installing Bitcoin Core.</p><h2 id="installing-and-configuring-bitcoin-core"><span class="me-2">Installing and Configuring Bitcoin Core</span><a href="#installing-and-configuring-bitcoin-core" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2><p>Before we begin, what does it mean to “Download Bitcoin”? There are competing forks of Bitcoin and competing versions (0.1 through 30 at the time of writing), so which one should you pick? If you want your node to support the critical soft forks that are active today, SegWit and Taproot, then you need at least v22.0. (SegWit support was introduced much earlier, but Taproot enforcement was first fully implemented in v22.0.). However, Bitcoin version updates aren’t for fun, each one brings important security, reliability, or performance upgrades. So, the latest version? Well, many Bitcoiners are not happy with the way changes were made for the most recent release, Bitcoin Core v30. A controversial change was made despite significant pushback (you can read about <code class="language-plaintext highlighter-rouge">OP_RETURN</code> and make up your own mind), which spawned the competing fork known as Bitcoin Knots.</p><p>The answer to this question has to come from your reason to do this in the first place. I need a node to work on software that will be talking to a node, and if I want that software to be useful to others, I need to make sure it’s compatible with newer versions. For this reason, I am downloading <code class="language-plaintext highlighter-rouge">v28</code>, which was released in October 2024. The instructions that follow should be largely version-agnostic.</p><p>To download the files we need, we’re going to use the <code class="language-plaintext highlighter-rouge">wget</code> command. To use it, we need the exact URL of the file. I navigated to <a href="https://bitcoincore.org/bin/bitcoin-core-28.0/">https://bitcoincore.org/bin/bitcoin-core-28.0/</a> and copied the download links to the x86 64-bit linux archive (the .tar.gz), the <code class="language-plaintext highlighter-rouge">SHA256SUMS</code>, and the <code class="language-plaintext highlighter-rouge">SHA256SUMS.asc</code> files. Use <code class="language-plaintext highlighter-rouge">wget</code> to download them:</p><div class="language-console highlighter-rouge"><div class="code-header"> <span data-label-text="Console"><i class="fas fa-code fa-fw small"></i></span> <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+</pre><td class="rouge-code"><pre><span class="gp">taylor@debian:~$</span><span class="w"> </span>wget https://bitcoincore.org/bin/bitcoin-core-28.0/bitcoin-28.0-x86_64-linux-gnu.tar.gz
+<span class="go">--2026-03-01 12:53:19--  https://bitcoincore.org/bin/bitcoin-core-28.0/bitcoin-28.0-x86_64-linux-gnu.tar.gz
+Resolving bitcoincore.org (bitcoincore.org)... 198.251.83.116, 208.68.7.208, 2620:6e:a004:1::b1c:c05e
+Connecting to bitcoincore.org (bitcoincore.org)|198.251.83.116|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 49598317 (47M) [application/gzip]
+Saving to: ‘bitcoin-28.0-x86_64-linux-gnu.tar.gz’
+
+</span><span class="gp">bitcoin-28.0-x86_64-linux-gnu.tar.gz    100%[===================================&gt;</span><span class="o">]</span>  47.30M  14.2MB/s    <span class="k">in </span>3.3s
+<span class="go">
+2026-03-01 12:53:23 (14.2 MB/s) - ‘bitcoin-28.0-x86_64-linux-gnu.tar.gz’ saved [49598317/49598317]
+
+</span><span class="gp">taylor@debian:~$</span><span class="w"> </span>wget https://bitcoincore.org/bin/bitcoin-core-28.0/SHA256SUMS.asc
+<span class="go">--2026-03-01 12:54:25--  https://bitcoincore.org/bin/bitcoin-core-28.0/SHA256SUMS.asc
+Resolving bitcoincore.org (bitcoincore.org)... 198.251.83.116, 208.68.7.208, 2620:6e:a004:1::b1c:c05e
+Connecting to bitcoincore.org (bitcoincore.org)|198.251.83.116|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 9109 (8.9K) [text/plain]
+Saving to: ‘SHA256SUMS.asc’
+
+</span><span class="gp">SHA256SUMS.asc                          100%[===================================&gt;</span><span class="o">]</span>   8.90K  <span class="nt">--</span>.-KB/s    <span class="k">in </span>0s
+<span class="go">
+2026-03-01 12:54:25 (341 MB/s) - ‘SHA256SUMS.asc’ saved [9109/9109]
+
+</span><span class="gp">taylor@debian:~$</span><span class="w"> </span>wget https://bitcoincore.org/bin/bitcoin-core-28.0/SHA256SUMS
+<span class="go">--2026-03-01 12:57:14--  https://bitcoincore.org/bin/bitcoin-core-28.0/SHA256SUMS
+Resolving bitcoincore.org (bitcoincore.org)... 198.251.83.116, 208.68.7.208, 2620:6e:a004:1::b1c:c05e
+Connecting to bitcoincore.org (bitcoincore.org)|198.251.83.116|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 2620 (2.6K) [application/octet-stream]
+Saving to: ‘SHA256SUMS’
+
+</span><span class="gp">SHA256SUMS                              100%[===================================&gt;</span><span class="o">]</span>   2.56K  <span class="nt">--</span>.-KB/s    <span class="k">in </span>0s
+<span class="go">
+2026-03-01 12:57:14 (94.6 MB/s) - ‘SHA256SUMS’ saved [2620/2620]
+</span></pre></table></code></div></div><p>Before we unpack the archive files, we need to verify that they haven’t been tampered with.</p><p>The basic idea here is that we can hash the archive we downloaded and compare it with the hash that the developers have provided. This is an excellent checking mechanism, but if an attacker managed to tamper with the archive file, they could easily just re-compute the hash then tamper with the hash file as well. So how do we make sure the hash file hasn’t been tampered with? The developers also provide a digitally signed version of the <code class="language-plaintext highlighter-rouge">SHA256SUMS</code> file. Anyone can hash, but only the developers can sign.</p><p>But how do we check the signatures? This is step one. From the public GitHub, download the manifest of developer public keys:</p><div class="language-console highlighter-rouge"><div class="code-header"> <span data-label-text="Console"><i class="fas fa-code fa-fw small"></i></span> <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+</pre><td class="rouge-code"><pre><span class="gp">taylor@debian:~$</span><span class="w"> </span>wget https://github.com/bitcoin-core/guix.sigs/archive/refs/heads/master.tar.gz
+<span class="go">--2026-03-01 13:06:21--  https://github.com/bitcoin-core/guix.sigs/archive/refs/heads/master.tar.gz
+Resolving github.com (github.com)... 140.82.112.4
+Connecting to github.com (github.com)|140.82.112.4|:443... connected.
+HTTP request sent, awaiting response... 302 Found
+Location: https://codeload.github.com/bitcoin-core/guix.sigs/tar.gz/main [following]
+--2026-03-01 13:06:22--  https://codeload.github.com/bitcoin-core/guix.sigs/tar.gz/main
+Resolving codeload.github.com (codeload.github.com)... 140.82.112.9
+Connecting to codeload.github.com (codeload.github.com)|140.82.112.9|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: unspecified [application/x-gzip]
+Saving to: ‘master.tar.gz’
+
+</span><span class="gp">master.tar.gz                               [  &lt;=&gt;</span><span class="w">                                                                         </span><span class="o">]</span>   1.89M  9.27MB/s    <span class="k">in </span>0.2s
+<span class="go">
+2026-03-01 13:06:22 (9.27 MB/s) - ‘master.tar.gz’ saved [1979851]
+</span></pre></table></code></div></div><p>Now, unpack the archive using the <code class="language-plaintext highlighter-rouge">tar -xzvf</code> command:</p><div class="language-console highlighter-rouge"><div class="code-header"> <span data-label-text="Console"><i class="fas fa-code fa-fw small"></i></span> <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre><td class="rouge-code"><pre><span class="gp">taylor@debian:~$</span><span class="w"> </span><span class="nb">tar</span> <span class="nt">-xzvf</span> master.tar.gz
+</pre></table></code></div></div><p>Now we will run two commands: <code class="language-plaintext highlighter-rouge">sudo apt install gnupg</code> and <code class="language-plaintext highlighter-rouge">gpg --import guix.sigs-main/builder-keys/*</code>. The first command installs a package called GPG that does all the math for us verifying the signatures using public-private key cryptography. The second uses that package to read all the keys that could potentially sign a Bitcoin version. The output should look something like this:</p><div class="language-console highlighter-rouge"><div class="code-header"> <span data-label-text="Console"><i class="fas fa-code fa-fw small"></i></span> <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+</pre><td class="rouge-code"><pre><span class="gp">taylor@debian:~$</span><span class="w"> </span><span class="nb">sudo </span>apt <span class="nb">install </span>gnupg
+<span class="gp">taylor@debian:~$</span><span class="w"> </span>gpg <span class="nt">--import</span> guix.sigs-main/builder-keys/<span class="k">*</span>
+<span class="go">gpg: key 188CBB2648416AD5: 6 signatures not checked due to missing keys
+gpg: /home/taylor/.gnupg/trustdb.gpg: trustdb created
+</span><span class="gp">gpg: key 188CBB2648416AD5: public key ".0xB10C &lt;b10c@b10c.me&gt;</span><span class="s2">" imported
+</span><span class="gp">gpg: key 17565732E08E5E41: public key "Ava Chow &lt;me@achow101.com&gt;</span><span class="s2">"</span> imported
+<span class="go">gpg: key D7CC770B81FD22A8: 2 signatures not checked due to missing keys
+</span><span class="gp">gpg: key D7CC770B81FD22A8: public key "Ben Carman &lt;benthecarman@live.com&gt;</span><span class="s2">" imported
+</span><span class="go">gpg: key 1C2491FFEB0EF770: 2 signatures not checked due to missing keys
+</span><span class="gp">gpg: key 1C2491FFEB0EF770: public key "Cory Fields &lt;cfields@bitcoinfoundation.org&gt;</span><span class="s2">" imported
+</span><span class="gp">gpg: key A5E0907A0380E6C3: public key "CoinForensics (SigningKey) &lt;59567284+coinforensics@users.noreply.github.com&gt;</span><span class="s2">"</span> imported
+<span class="go">gpg: key E13FC145CD3F4304: 15 signatures not checked due to missing keys
+</span><span class="gp">gpg: key E13FC145CD3F4304: public key "Antoine Poinsot &lt;darosior@protonmail.com&gt;</span><span class="s2">" imported
+</span><span class="gp">gpg: key 10F2A3D26839321E: public key "davidgumberg &lt;davidzgumberg@gmail.com&gt;</span><span class="s2">"</span> imported
+<span class="gp">gpg: key C37B1C1D44C786EE: public key "Duncan Dean &lt;duncangleeddean@gmail.com&gt;</span><span class="s2">" imported
+</span><span class="go">gpg: key 2EBB056FD847F8A7: 12 signatures not checked due to missing keys
+</span><span class="gp">gpg: key 2EBB056FD847F8A7: public key "Stephan Oeste (it) &lt;it@oeste.de&gt;</span><span class="s2">" imported
+</span><span class="go">gpg: key 944D35F9AC3DB76A: 18 signatures not checked due to missing keys
+</span><span class="gp">gpg: key 944D35F9AC3DB76A: public key "Michael Ford (bitcoin-otc) &lt;fanquake@gmail.com&gt;</span><span class="s2">" imported
+</span><span class="go">gpg: key 8F617F1200A6D25C: 8 signatures not checked due to missing keys
+</span><span class="gp">gpg: key 8F617F1200A6D25C: public key "Gloria Zhao &lt;gloriazhao@berkeley.edu&gt;</span><span class="s2">" imported
+</span><span class="go">gpg: key 8E4256593F177720: 1 signature not checked due to a missing key
+</span><span class="gp">gpg: key 8E4256593F177720: public key "Oliver Gugger &lt;gugger@gmail.com&gt;</span><span class="s2">" imported
+</span><span class="gp">gpg: key 410108112E7EA81F: public key "Hennadii Stepanov (GitHub key) &lt;32963518+hebasto@users.noreply.github.com&gt;</span><span class="s2">"</span> imported
+<span class="gp">gpg: key 0E3908F364989888: public key "Abubakar Sadiq Ismail &lt;abubakarsadiqismail@proton.me&gt;</span><span class="s2">" imported
+</span><span class="gp">gpg: key D11BD4F33F1DB499: public key "jackielove4u &lt;jackielove4u@hotmail.com&gt;</span><span class="s2">"</span> imported
+<span class="gp">gpg: key 8ADCB558C4F33D65: public key "josibake@protonmail.com &lt;josibake@protonmail.com&gt;</span><span class="s2">" imported
+</span><span class="gp">gpg: key F62711DBDCA8AE56: public key "Dimitri &lt;kvaciral@protonmail.com&gt;</span><span class="s2">"</span> imported
+<span class="go">gpg: key 74810B012346C9A6: 104 signatures not checked due to missing keys
+</span><span class="gp">gpg: key 74810B012346C9A6: public key "Wladimir J. van der Laan &lt;laanwj@protonmail.com&gt;</span><span class="s2">" imported
+</span><span class="gp">gpg: key A291A2C45D0C504A: public key "Luke Dashjr (Codesigning) &lt;luke-jr+git@utopios.org&gt;</span><span class="s2">"</span> imported
+<span class="gp">gpg: key B66D427F873CB1A3: public key "m3dwards &lt;me@maxedwards.me&gt;</span><span class="s2">" imported
+</span><span class="gp">gpg: key F9C5154E44D75DF8: public key "maflcko &lt;*~=`'#</span><span class="s2">}+{/-|&amp;</span><span class="nv">$^</span><span class="s2">_@721217.xyz&gt;"</span> imported
+<span class="gp">gpg: key BF131C2D0536F8AC: public key "marcofleon &lt;marleo23@proton.me&gt;</span><span class="s2">" imported
+</span><span class="go">gpg: key E7E2984B6289C93A: 1 signature not checked due to a missing key
+</span><span class="gp">gpg: key E7E2984B6289C93A: public key "Matthew Zipkin (GitHub Signing Key) &lt;pinheadmz@gmail.com&gt;</span><span class="s2">" imported
+</span><span class="gp">gpg: key 747A7AE2FB0FD25B: public key "satsie &lt;staciewaleyko@gmail.com&gt;</span><span class="s2">"</span> imported
+<span class="gp">gpg: key 9303B33A305224CB: public key "sedited &lt;seb.kung@gmail.com&gt;</span><span class="s2">" imported
+</span><span class="go">gpg: key 860FEB804E669320: 61 signatures not checked due to missing keys
+</span><span class="gp">gpg: key 860FEB804E669320: public key "Pieter Wuille &lt;pieter@wuille.net&gt;</span><span class="s2">" imported
+</span><span class="gp">gpg: key 0A41BDC3F4FAFF1C: public key "Aaron Clauson (sipsorcery) &lt;aaron@sipsorcery.com&gt;</span><span class="s2">"</span> imported
+<span class="go">gpg: key 57FF9BDBCC301009: 42 signatures not checked due to missing keys
+</span><span class="gp">gpg: key 57FF9BDBCC301009: public key "Sjors Provoost &lt;sjors@sprovoost.nl&gt;</span><span class="s2">" imported
+</span><span class="gp">gpg: key CFB2C83C66CD792A: public key "Sebastian van Staa &lt;sebastian.van.staa@gmail.com&gt;</span><span class="s2">"</span> imported
+<span class="gp">gpg: key 7B18557E3AF1CDA5: public key "tapcrafter &lt;tapcrafter@proton.me&gt;</span><span class="s2">" imported
+</span><span class="go">gpg: key 9303B33A305224CB: 15 signatures not checked due to missing keys
+</span><span class="gp">gpg: key 9303B33A305224CB: "sedited &lt;seb.kung@gmail.com&gt;</span><span class="s2">" 1 new user ID
+</span><span class="gp">gpg: key 9303B33A305224CB: "sedited &lt;seb.kung@gmail.com&gt;</span><span class="s2">"</span> 17 new signatures
+<span class="gp">gpg: key C2371D91CB716EA7: public key "Sebastian Falbesoner (theStack) &lt;sebastian.falbesoner@gmail.com&gt;</span><span class="s2">" imported
+</span><span class="gp">gpg: key A7BEB2621678D37D: public key "vertion &lt;vertion@protonmail.com&gt;</span><span class="s2">"</span> imported
+<span class="go">gpg: key 3B8F814A784218F8: 1 signature not checked due to a missing key
+</span><span class="gp">gpg: key 3B8F814A784218F8: public key "Will Clark &lt;will@256k1.dev&gt;</span><span class="s2">" imported
+</span><span class="gp">gpg: key 8E3A8F3247DBCBBF: public key "Willy Ko &lt;willyk@syscoin.org&gt;</span><span class="s2">"</span> imported
+<span class="gp">gpg: key CA247AC78DF0509C: public key "yuvicc (yuvicc-sign-release) &lt;yuvichh01@gmail.com&gt;</span><span class="s2">" imported
+</span><span class="go">gpg: Total number processed: 36
+gpg:               imported: 35
+gpg:           new user IDs: 1
+gpg:         new signatures: 17
+gpg: no ultimately trusted keys found
+</span></pre></table></code></div></div><p>Now that we can check whether a developer has signed something, let’s check! Using the <code class="language-plaintext highlighter-rouge">gpg --verify</code> command will check any file against the list of keys we have imported. Run this on the signature file with <code class="language-plaintext highlighter-rouge">gpg --verify SHA256SUMS.asc</code>:</p><div class="language-console highlighter-rouge"><div class="code-header"> <span data-label-text="Console"><i class="fas fa-code fa-fw small"></i></span> <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+</pre><td class="rouge-code"><pre><span class="gp">taylor@debian:~$</span><span class="w"> </span>gpg <span class="nt">--verify</span> SHA256SUMS.asc
+<span class="go">gpg: assuming signed data in 'SHA256SUMS'
+gpg: Signature made Thu 03 Oct 2024 12:25:02 PM EDT
+gpg:                using RSA key 101598DC823C1B5F9A6624ABA5E0907A0380E6C3
+</span><span class="gp">gpg: Good signature from "CoinForensics (SigningKey) &lt;59567284+coinforensics@users.noreply.github.com&gt;</span><span class="s2">" [expired]
+</span><span class="go">gpg: Note: This key has expired!
+Primary key fingerprint: 1015 98DC 823C 1B5F 9A66  24AB A5E0 907A 0380 E6C3
+
+</span><span class="c">...
+</span><span class="go">[a long list of signatures]
+</span><span class="c">...
+</span></pre></table></code></div></div><p>The critical line in each entry is the <code class="language-plaintext highlighter-rouge">gpg: Good signature...</code> line. After that, there are warnings that the key is not certified with a trusted signature. This just means that I have not signed these newly imported keys with my own key. This warning can be safely ignored (per the Core developers: <a href="https://bitcoincore.org/en/download/">https://bitcoincore.org/en/download/</a>).</p><p>Finally, check the bitcoin core download itself.</p><div class="language-console highlighter-rouge"><div class="code-header"> <span data-label-text="Console"><i class="fas fa-code fa-fw small"></i></span> <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+</pre><td class="rouge-code"><pre><span class="gp">taylor@debian:~$</span><span class="w"> </span><span class="nb">sha256sum</span> <span class="nt">--check</span> SHA256SUMS <span class="nt">--ignore-missing</span>
+<span class="go">bitcoin-28.0-x86_64-linux-gnu.tar.gz: OK
+</span></pre></table></code></div></div><p>To recap, we downloaded Bitcoin Core v28.0, a list of hashes for all v28.0 files, a signature file which proves the hashes are authentic, and the keys for all Bitcoin Core signers which proves the signature file is authentic. In order for an attacker to tamper with this download, they would have to compromise the public GitHub listing of all the developers keys, replace all the keys with fake keys, create a modified version of the release, hash it, sign the hashes with the fake keys, then somehow get the fake versions onto the Bitcoin Core file server. Doing any one of those things would raise an army of red flags, so I think we’re safe.</p><p>Now let’s unpack the compressed file and move the executable binaries into our executable directory:</p><div class="language-console highlighter-rouge"><div class="code-header"> <span data-label-text="Console"><i class="fas fa-code fa-fw small"></i></span> <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+</pre><td class="rouge-code"><pre><span class="gp">taylor@debian:~$</span><span class="w"> </span><span class="nb">ls</span>
+<span class="go">bitcoin-28.0-x86_64-linux-gnu.tar.gz guix.sigs-main  master.tar.gz  SHA256SUMS  SHA256SUMS.asc
+</span><span class="gp">taylor@debian:~$</span><span class="w"> </span><span class="nb">tar</span> <span class="nt">-xzf</span> bitcoin-28.0-x86_64-linux-gnu.tar.gz
+<span class="gp">taylor@debian:~$</span><span class="w"> </span><span class="nb">ls</span>
+<span class="go">bitcoin-28.0  bitcoin-28.0-x86_64-linux-gnu.tar.gz guix.sigs-main  master.tar.gz  SHA256SUMS  SHA256SUMS.asc
+</span><span class="gp">taylor@debian:~$</span><span class="w"> </span><span class="nb">sudo cp </span>bitcoin-28.0/bin/<span class="k">*</span> /usr/local/bin
+<span class="go">[sudo] password for taylor:
+</span></pre></table></code></div></div><p>Now that “bitcoin” is in our executable directory, we should be able to invoke it directly:</p><div class="language-console highlighter-rouge"><div class="code-header"> <span data-label-text="Console"><i class="fas fa-code fa-fw small"></i></span> <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+</pre><td class="rouge-code"><pre><span class="gp">taylor@debian:~$</span><span class="w"> </span>bitcoind <span class="nt">--version</span>
+<span class="go">Bitcoin Core version v28.0.0
+Copyright (C) 2009-2024 The Bitcoin Core developers
+
+Please contribute if you find Bitcoin Core useful. Visit
+</span><span class="gp">&lt;https://bitcoincore.org/&gt;</span><span class="w"> </span><span class="k">for </span>further information about the software.
+<span class="gp">The source code is available from &lt;https://github.com/bitcoin/bitcoin&gt;</span><span class="nb">.</span>
+<span class="go">
+This is experimental software.
+Distributed under the MIT software license, see the accompanying file COPYING
+</span><span class="gp">or &lt;https://opensource.org/licenses/MIT&gt;</span><span class="w">
+</span><span class="gp">taylor@debian:~$</span><span class="w"> </span>bitcoin-cli <span class="nt">--version</span>
+<span class="go">Bitcoin Core RPC client version v28.0.0
+Copyright (C) 2009-2024 The Bitcoin Core developers
+
+Please contribute if you find Bitcoin Core useful. Visit
+</span><span class="gp">&lt;https://bitcoincore.org/&gt;</span><span class="w"> </span><span class="k">for </span>further information about the software.
+<span class="gp">The source code is available from &lt;https://github.com/bitcoin/bitcoin&gt;</span><span class="nb">.</span>
+<span class="go">
+This is experimental software.
+Distributed under the MIT software license, see the accompanying file COPYING
+</span><span class="gp">or &lt;https://opensource.org/licenses/MIT&gt;</span><span class="w">
+</span></pre></table></code></div></div><p>Next, we need to create a system user to grant file permissions and operate the application. We will create a <code class="language-plaintext highlighter-rouge">bitcoin</code> user and give it access to the whole <code class="language-plaintext highlighter-rouge">/mnt/bitcoin</code> directory. Use the series of commands below:</p><div class="language-console highlighter-rouge"><div class="code-header"> <span data-label-text="Console"><i class="fas fa-code fa-fw small"></i></span> <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+</pre><td class="rouge-code"><pre><span class="gp">taylor@debian:~$</span><span class="w"> </span><span class="nb">sudo </span>useradd <span class="nt">-r</span> <span class="nt">-m</span> <span class="nt">-s</span> /bin/false bitcoin
+<span class="gp">taylor@debian:~$</span><span class="w"> </span><span class="nb">sudo chown</span> <span class="nt">-R</span> bitcoin:bitcoin /mnt/bitcoin
+<span class="gp">taylor@debian:~$</span><span class="w"> </span><span class="nb">sudo mkdir</span> <span class="nt">-p</span> /mnt/bitcoin/.bitcoin
+<span class="gp">taylor@debian:~$</span><span class="w"> </span><span class="nb">sudo chown </span>bitcoin:bitcoin /mnt/bitcoin/.bitcoin
+<span class="gp">taylor@debian:~$</span><span class="w"> </span><span class="nb">sudo chmod </span>750 /mnt/bitcoin/.bitcoin
+</pre></table></code></div></div><p>Next, we need to configure how the app should run. Bitcoin is managed by a file called <code class="language-plaintext highlighter-rouge">bitcoin.conf</code>. Use the command <code class="language-plaintext highlighter-rouge">sudo -u bitcoin nano /mnt/bitcoin/.bitcoin/bitcoin.conf</code> to create this file and open a text editor so we can update it. Use the following values to start:</p><div class="language-plaintext highlighter-rouge"><div class="code-header"> <span data-label-text="Plaintext"><i class="fas fa-code fa-fw small"></i></span> <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+</pre><td class="rouge-code"><pre>datadir=/mnt/bitcoin
+listen=1
+port=8333
+rpcuser=bitcoinrpc
+rpcpassword=YOUR_GOOD_PASSWORD_HERE
+rpcbind=0.0.0.0
+rpcallowip=127.0.0.1/32
+rpcallowip=192.168.1.0/24
+</pre></table></code></div></div><p>Then, make it so only our <code class="language-plaintext highlighter-rouge">bitcoin</code> user can read this file with <code class="language-plaintext highlighter-rouge">sudo chmod 600 /mnt/bitcoin/.bitcoin/bitcoin.conf</code>:</p><div class="language-console highlighter-rouge"><div class="code-header"> <span data-label-text="Console"><i class="fas fa-code fa-fw small"></i></span> <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre><td class="rouge-code"><pre><span class="gp">taylor@debian:~$</span><span class="w"> </span><span class="nb">sudo chmod </span>600 /mnt/bitcoin/.bitcoin/bitcoin.conf 
+</pre></table></code></div></div><p>Next, we need to create a systemd service so our Bitcoin core application will automatically run and with the right permission and configuration. <code class="language-plaintext highlighter-rouge">sudo nano /etc/systemd/system/bitcoind.service</code>:</p><p>Add the following to the file, then save and exit (<code class="language-plaintext highlighter-rouge">Ctrl + X</code> then <code class="language-plaintext highlighter-rouge">Y</code>):</p><div class="language-plaintext highlighter-rouge"><div class="code-header"> <span data-label-text="Plaintext"><i class="fas fa-code fa-fw small"></i></span> <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+</pre><td class="rouge-code"><pre>[Unit]
+Description=Bitcoin daemon
+After=network.target
+
+[Service]
+ExecStart=/usr/local/bin/bitcoind -conf=/mnt/bitcoin/.bitcoin/bitcoin.conf -datadir=/mnt/bitcoin
+User=bitcoin
+Group=bitcoin
+Type=simple
+Restart=on-failure
+RestartSec=30
+TimeoutStartSec=infinity
+TimeoutStopSec=600
+
+# Security hardening
+NoNewPrivileges=true
+ProtectSystem=strict
+ProtectHome=true
+ReadWritePaths=/mnt/bitcoin
+
+[Install]
+WantedBy=multi-user.target
+</pre></table></code></div></div><p>Once the service file exists, we need to enable and start the service. Use the <code class="language-plaintext highlighter-rouge">systemctl</code> commands below:</p><div class="language-console highlighter-rouge"><div class="code-header"> <span data-label-text="Console"><i class="fas fa-code fa-fw small"></i></span> <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+</pre><td class="rouge-code"><pre><span class="gp">taylor@debian:~$</span><span class="w"> </span><span class="nb">sudo </span>systemctl daemon-reload
+<span class="gp">taylor@debian:~$</span><span class="w"> </span><span class="nb">sudo </span>systemctl <span class="nb">enable </span>bitcoind
+<span class="go">Created symlink '/etc/systemd/system/multi-user.target.wants/bitcoind.service' → '/etc/systemd/system/bitcoind.service'.
+</span><span class="gp">taylor@debian:~$</span><span class="w"> </span><span class="nb">sudo </span>systemctl start bitcoind
+</pre></table></code></div></div><p>To monitor the node’s progress, you can use <code class="language-plaintext highlighter-rouge">sudo journalctl -u bitcoind -f</code>. This will let you watch as new logs are generated by the bitcoin node.</p><div class="language-console highlighter-rouge"><div class="code-header"> <span data-label-text="Console"><i class="fas fa-code fa-fw small"></i></span> <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+</pre><td class="rouge-code"><pre><span class="gp">taylor@debian:~$</span><span class="w"> </span><span class="nb">sudo </span>journalctl <span class="nt">-u</span> bitcoind <span class="nt">-f</span>
+<span class="go">Mar 01 14:11:02 debian bitcoind[1849]: 2026-03-01T19:11:02Z Pre-synchronizing blockheaders, height: 2000 (~0.22%)
+Mar 01 14:11:03 debian bitcoind[1849]: 2026-03-01T19:11:03Z Pre-synchronizing blockheaders, height: 6000 (~0.67%)
+Mar 01 14:11:03 debian bitcoind[1849]: 2026-03-01T19:11:03Z Loading addresses from DNS seed dnsseed.bitcoin.dashjr-list-of-p2p-nodes.us.
+Mar 01 14:11:03 debian bitcoind[1849]: 2026-03-01T19:11:03Z Pre-synchronizing blockheaders, height: 10000 (~1.11%)
+Mar 01 14:11:03 debian bitcoind[1849]: 2026-03-01T19:11:03Z New outbound-full-relay v1 peer connected: version: 70016, blocks=938903, peer=3
+Mar 01 14:11:03 debian bitcoind[1849]: 2026-03-01T19:11:03Z Pre-synchronizing blockheaders, height: 14000 (~1.56%)
+Mar 01 14:11:03 debian bitcoind[1849]: 2026-03-01T19:11:03Z Loading addresses from DNS seed dnsseed.emzy.de.
+Mar 01 14:11:04 debian bitcoind[1849]: 2026-03-01T19:11:04Z Pre-synchronizing blockheaders, height: 18000 (~2.01%)
+Mar 01 14:11:04 debian bitcoind[1849]: 2026-03-01T19:11:04Z New outbound-full-relay v1 peer connected: version: 70016, blocks=938903, peer=5
+Mar 01 14:11:04 debian bitcoind[1849]: 2026-03-01T19:11:04Z Pre-synchronizing blockheaders, height: 22000 (~2.47%)
+Mar 01 14:11:04 debian bitcoind[1849]: 2026-03-01T19:11:04Z Pre-synchronizing blockheaders, height: 26000 (~2.94%)
+Mar 01 14:11:04 debian bitcoind[1849]: 2026-03-01T19:11:04Z Pre-synchronizing blockheaders, height: 30000 (~3.40%)
+Mar 01 14:11:05 debian bitcoind[1849]: 2026-03-01T19:11:05Z Loading addresses from DNS seed seed.bitcoin.sipa.be.
+Mar 01 14:11:05 debian bitcoind[1849]: 2026-03-01T19:11:05Z Pre-synchronizing blockheaders, height: 34000 (~3.85%)
+Mar 01 14:11:05 debian bitcoind[1849]: 2026-03-01T19:11:05Z Pre-synchronizing blockheaders, height: 38000 (~4.30%)
+Mar 01 14:11:05 debian bitcoind[1849]: 2026-03-01T19:11:05Z Pre-synchronizing blockheaders, height: 42000 (~4.75%)
+Mar 01 14:11:06 debian bitcoind[1849]: 2026-03-01T19:11:06Z Pre-synchronizing blockheaders, height: 44000 (~4.97%)
+Mar 01 14:11:06 debian bitcoind[1849]: 2026-03-01T19:11:06Z Pre-synchronizing blockheaders, height: 48000 (~5.42%)
+Mar 01 14:11:06 debian bitcoind[1849]: 2026-03-01T19:11:06Z Pre-synchronizing blockheaders, height: 52000 (~5.87%)
+Mar 01 14:11:06 debian bitcoind[1849]: 2026-03-01T19:11:06Z Loading addresses from DNS seed seed.bitcoin.wiz.biz.
+Mar 01 14:11:07 debian bitcoind[1849]: 2026-03-01T19:11:07Z Loading addresses from DNS seed dnsseed.bluematt.me.
+Mar 01 14:11:07 debian bitcoind[1849]: 2026-03-01T19:11:07Z Pre-synchronizing blockheaders, height: 56000 (~6.32%)
+Mar 01 14:11:07 debian bitcoind[1849]: 2026-03-01T19:11:07Z Loading addresses from DNS seed seed.btc.petertodd.net.
+Mar 01 14:11:07 debian bitcoind[1849]: 2026-03-01T19:11:07Z Pre-synchronizing blockheaders, height: 60000 (~6.76%)
+Mar 01 14:11:07 debian bitcoind[1849]: 2026-03-01T19:11:07Z 286 addresses found from DNS seeds
+Mar 01 14:11:07 debian bitcoind[1849]: 2026-03-01T19:11:07Z dnsseed thread exit
+</span><span class="c">...
+</span></pre></table></code></div></div><p>We can see that the node is now syncing blocks and pulling down bootstrap nodes from the DNS seeds run by Core maintainers.</p><p>Next, we need to make sure we can communicate with the node via RPC. RPC is the protocol used by Bitcoin software to get needed information from nodes. First, let’s try and make an RPC request via the CLI on our debian machine.</p><div class="language-console highlighter-rouge"><div class="code-header"> <span data-label-text="Console"><i class="fas fa-code fa-fw small"></i></span> <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+</pre><td class="rouge-code"><pre><span class="gp">taylor@debian:~$</span><span class="w"> </span><span class="nb">sudo</span> <span class="nt">-u</span> bitcoin /usr/local/bin/bitcoin-cli <span class="nt">-conf</span><span class="o">=</span>/mnt/bitcoin/.bitcoin/bitcoin.conf getblockchaininfo
+<span class="go">{
+  "chain": "main",
+  "blocks": 351230,
+  "headers": 938905,
+  "bestblockhash": "00000000000000000b43ad0ef8af67562bd1542ac9ff05bbca28ae63fa160c79",
+  "difficulty": 49446390688.24144,
+  "time": 1428486478,
+  "mediantime": 1428479813,
+  "verificationprogress": 0.04676222132915255,
+  "initialblockdownload": true,
+  "chainwork": "00000000000000000000000000000000000000000005fd5cac8836f0e81c3cde",
+  "size_on_disk": 38695278459,
+  "pruned": false,
+  "warnings": [
+  ]
+}
+</span></pre></table></code></div></div><p>Great, it’s working. Now we can try from another machine on our LAN network.</p><div class="language-powershell highlighter-rouge"><div class="code-header"> <span data-label-text="Powershell"><i class="fas fa-code fa-fw small"></i></span> <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+</pre><td class="rouge-code"><pre><span class="n">C:\Users\taylor</span><span class="err">&gt;</span><span class="nx">curl</span><span class="w"> </span><span class="nt">-u</span><span class="w"> </span><span class="nx">bitcoinrpc</span><span class="w"> </span><span class="nt">-d</span><span class="w"> </span><span class="s2">"{\"</span><span class="nx">jsonrpc\</span><span class="s2">":\"</span><span class="nx">1.0\</span><span class="s2">",\"</span><span class="nx">id\</span><span class="s2">":\"</span><span class="nx">test\</span><span class="s2">",\"</span><span class="nx">method\</span><span class="s2">":\"</span><span class="nx">getblockchaininfo\</span><span class="s2">",\"</span><span class="nx">params\</span><span class="s2">":[]}"</span><span class="w"> </span><span class="nt">-H</span><span class="w"> </span><span class="s2">"Content-Type: text/plain;"</span><span class="w"> </span><span class="nx">http://192.168.1.252:8332/</span><span class="w">
+</span><span class="n">Enter</span><span class="w"> </span><span class="nx">host</span><span class="w"> </span><span class="nx">password</span><span class="w"> </span><span class="nx">for</span><span class="w"> </span><span class="nx">user</span><span class="w"> </span><span class="s1">'bitcoinrpc'</span><span class="p">:</span><span class="w">
+</span><span class="p">{</span><span class="s2">"result"</span><span class="p">:{</span><span class="s2">"chain"</span><span class="p">:</span><span class="s2">"main"</span><span class="p">,</span><span class="s2">"blocks"</span><span class="p">:</span><span class="mi">367361</span><span class="p">,</span><span class="s2">"headers"</span><span class="p">:</span><span class="mi">938906</span><span class="p">,</span><span class="s2">"bestblockhash"</span><span class="p">:</span><span class="s2">"00000000000000000af51bc19e872b2202f44b834575e52fc03c0cb6403fa458"</span><span class="p">,</span><span class="s2">"difficulty"</span><span class="p">:</span><span class="mf">52278304845.59168</span><span class="p">,</span><span class="s2">"time"</span><span class="p">:</span><span class="mi">1438094261</span><span class="p">,</span><span class="s2">"mediantime"</span><span class="p">:</span><span class="mi">1438091233</span><span class="p">,</span><span class="s2">"verificationprogress"</span><span class="p">:</span><span class="mf">0.05612806988650505</span><span class="p">,</span><span class="s2">"initialblockdownload"</span><span class="p">:</span><span class="n">true</span><span class="p">,</span><span class="s2">"chainwork"</span><span class="p">:</span><span class="s2">"00000000000000000000000000000000000000000008cc12c549a1c4fb7d90ba"</span><span class="p">,</span><span class="s2">"size_on_disk"</span><span class="p">:</span><span class="nx">47074367637</span><span class="p">,</span><span class="s2">"pruned"</span><span class="p">:</span><span class="nx">false</span><span class="p">,</span><span class="s2">"warnings"</span><span class="p">:[]},</span><span class="s2">"error"</span><span class="p">:</span><span class="n">null</span><span class="p">,</span><span class="s2">"id"</span><span class="p">:</span><span class="s2">"test"</span><span class="p">}</span><span class="w">
+</span></pre></table></code></div></div><p>This confirms that RPC is working as expected and we can communicate with the node over LAN.</p><p>At this point, we’re done! Depending on how many resources your VM has, the speed of the storage drive you used, and your network bandwidth, syncing the blockchain can take 24 hours to just over a week.</p><h2 id="conclusion"><span class="me-2">Conclusion</span><a href="#conclusion" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2><p>I took my need for a Bitcoin node as an opportunity to explore TrueNAS’ virtualization features, and so far it’s working out great. If you rely on Bitcoin, please take the time to read many sources and get truly comfortable with your node.</p><blockquote class="prompt-info"><p>This content is for educational/documentary purposes only. I take no responsibility for the consequences of following, or not following, these instructions. Nothing I say constitutes financial advice or the opinions of any former, current, or future employer.</p></blockquote></div><div class="post-tail-wrapper text-muted"><div class=" post-tail-bottom d-flex justify-content-between align-items-center mt-5 pb-2 " ><div class="license-wrapper"> This post is licensed under <a href="https://creativecommons.org/licenses/by/4.0/"> CC BY 4.0 </a> by the author.</div><div class="share-wrapper d-flex align-items-center"> <span class="share-label text-muted">Share</span> <span class="share-icons"> <button id="copy-link" aria-label="Copy link" class="btn small" data-bs-toggle="tooltip" data-bs-placement="top" title="Copy link" data-title-succeed="Link copied successfully!" > <i class="fa-fw fas fa-link pe-none fs-6"></i> </button> </span></div></div></div></article></main><aside aria-label="Panel" id="panel-wrapper" class="col-xl-3 ps-2 text-muted"><div class="access"><section id="access-lastmod"><h2 class="panel-heading">Recently Updated</h2><ul class="content list-unstyled ps-0 pb-1 ms-1 mt-2"><li class="text-truncate lh-lg"> <a href="/posts/Bitcoin-via-TrueNAS-Virtualization/">Bitcoin via TrueNAS Virtualization</a><li class="text-truncate lh-lg"> <a href="/posts/Workshop-Companion-Instructions/">Workshop Companion Instructions</a><li class="text-truncate lh-lg"> <a href="/posts/Custom-Domain,-Bot-Protection,-and-Region-Locks-on-GitHub-Pages-with-Cloudflare-copy/">Custom Domain, Bot Protection, and Region Locks on GitHub Pages with Cloudflare</a><li class="text-truncate lh-lg"> <a href="/posts/27-Million-Read-Errors/">27 Million Read Errors</a><li class="text-truncate lh-lg"> <a href="/posts/HackPackCTF-Pharoahs/">HackPackCTF 2025: Pharoahs</a></ul></section><section><h2 class="panel-heading">Trending Tags</h2><div class="d-flex flex-wrap mt-3 mb-1 me-3"> <a class="post-tag btn btn-outline-primary" href="/tags/hackpackctf/">HackPackCTF</a> <a class="post-tag btn btn-outline-primary" href="/tags/dns/">DNS</a> <a class="post-tag btn btn-outline-primary" href="/tags/cloudflare/">Cloudflare</a> <a class="post-tag btn btn-outline-primary" href="/tags/github/">GitHub</a> <a class="post-tag btn btn-outline-primary" href="/tags/ios/">iOS</a> <a class="post-tag btn btn-outline-primary" href="/tags/storage/">Storage</a> <a class="post-tag btn btn-outline-primary" href="/tags/truenas/">TrueNAS</a> <a class="post-tag btn btn-outline-primary" href="/tags/vpn/">VPN</a></div></section></div><div class="toc-border-cover z-3"></div><section id="toc-wrapper" class="invisible position-sticky ps-0 pe-4 pb-4"><h2 class="panel-heading ps-3 pb-2 mb-0">Contents</h2><nav id="toc"></nav></section></aside></div><div class="row"><div id="tail-wrapper" class="col-12 col-lg-11 col-xl-9 px-md-4"><nav class="post-navigation d-flex justify-content-between" aria-label="Post Navigation"> <a href="/posts/Workshop-Companion-Instructions/" class="btn btn-outline-primary" aria-label="Older" ><p>Workshop Companion Instructions</p></a><div class="btn btn-outline-primary disabled" aria-label="Newer"><p>-</p></div></nav><footer aria-label="Site Info" class=" d-flex flex-column justify-content-center text-muted flex-lg-row justify-content-lg-between align-items-lg-center pb-lg-3 " ><p>© <time>2026</time> <a href="https://github.com/wtthoma4">Taylor Thomas</a>. <span data-bs-toggle="tooltip" data-bs-placement="top" title="Except where otherwise noted, the blog posts on this site are licensed under the Creative Commons Attribution 4.0 International (CC BY 4.0) License by the author." >Some rights reserved.</span></p><p>Red and White Forever!</p></footer></div></div><div id="search-result-wrapper" class="d-flex justify-content-center d-none"><div class="col-11 content"><div id="search-hints"><section><h2 class="panel-heading">Trending Tags</h2><div class="d-flex flex-wrap mt-3 mb-1 me-3"> <a class="post-tag btn btn-outline-primary" href="/tags/hackpackctf/">HackPackCTF</a> <a class="post-tag btn btn-outline-primary" href="/tags/dns/">DNS</a> <a class="post-tag btn btn-outline-primary" href="/tags/cloudflare/">Cloudflare</a> <a class="post-tag btn btn-outline-primary" href="/tags/github/">GitHub</a> <a class="post-tag btn btn-outline-primary" href="/tags/ios/">iOS</a> <a class="post-tag btn btn-outline-primary" href="/tags/storage/">Storage</a> <a class="post-tag btn btn-outline-primary" href="/tags/truenas/">TrueNAS</a> <a class="post-tag btn btn-outline-primary" href="/tags/vpn/">VPN</a></div></section></div><div id="search-results" class="d-flex flex-wrap justify-content-center text-muted mt-3"></div></div></div></div><aside aria-label="Scroll to Top"> <button id="back-to-top" type="button" class="btn btn-lg btn-box-shadow"> <i class="fas fa-angle-up"></i> </button></aside></div><div id="mask" class="d-none position-fixed w-100 h-100 z-1"></div><script> document.addEventListener('DOMContentLoaded', () => { SimpleJekyllSearch({ searchInput: document.getElementById('search-input'), resultsContainer: document.getElementById('search-results'), json: '/assets/js/data/search.json', searchResultTemplate: '<article class="px-1 px-sm-2 px-lg-4 px-xl-0"><header><h2><a href="{url}">{title}</a></h2><div class="post-meta d-flex flex-column flex-sm-row text-muted mt-1 mb-1"> {categories} {tags}</div></header><p>{content}</p></article>', noResultsText: '<p class="mt-5">Oops! No results found.</p>', templateMiddleware: function(prop, value, template) { if (prop === 'categories') { if (value === '') { return `${value}`; } else { return `<div class="me-sm-4"><i class="far fa-folder fa-fw"></i>${value}</div>`; } } if (prop === 'tags') { if (value === '') { return `${value}`; } else { return `<div><i class="fa fa-tag fa-fw"></i>${value}</div>`; } } } }); }); </script>
