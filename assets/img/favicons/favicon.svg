@@ -1,3 +1,42 @@
-<svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="200" height="200"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 200 200"><rect width="200" height="200" fill="url('#gradient')"></rect><defs><linearGradient id="SvgjsLinearGradient1001" gradientTransform="rotate(45 0.5 0.5)"><stop offset="0%" stop-color="#ffffff"></stop><stop offset="100%" stop-color="#ffffff"></stop></linearGradient></defs><g><g fill="#cc0000" transform="matrix(7.302694136291601,0,0,7.302694136291601,7.437571812214443,151.92153115053372)" stroke="#fbc952" stroke-width="0"><path d="M12.24-14.22L12.24-11.57L7.97-11.57L7.97 0L4.54 0L4.54-11.57L0.35-11.57L0.35-14.22L12.24-14.22ZM25-14.22L25-11.57L20.73-11.57L20.73 0L17.30 0L17.30-11.57L13.12-11.57L13.12-14.22L25-14.22Z"></path></g></g></svg><style>@media (prefers-color-scheme: light) { :root { filter: none; } }
-@media (prefers-color-scheme: dark) { :root { filter: none; } }
-</style></svg>
+<svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+  <g transform="translate(41, 34.5)">
+  <defs>
+    <mask id="shieldCut">
+      <rect x="0" y="0" width="318" height="331" fill="#ffffff"/>
+      <path d="M0,190 L67,190
+               C67,228 117.8,272.4 159,290.5
+               C200.2,272.4 251,228 251,190
+               L318,190 L318,331 L0,331 Z"
+            fill="#000000"/>
+    </mask>
+  </defs>
+
+  <style>
+    .arch   { fill: none; stroke: #d33e48; stroke-width: 12; }
+    .shield { fill: none; stroke: #d33e48; stroke-width: 12; stroke-linejoin: miter; }
+    .t1     { fill: #f7931a; }
+    .t2     { fill: #f7931a; }
+  </style>
+
+  <path class="arch"
+        d="M51,61
+           L51,44
+           C51,40 135,25 159,25
+           C183,25 267,40 267,44
+           L267,61" />
+
+  <path class="shield"
+        d="M51,110
+           L51,190
+           C51,222 86,276 159,308
+           C232,276 267,222 267,190
+           L267,149" />
+
+  <g mask="url(#shieldCut)">
+    <path class="t1"
+          d="M12,71 L306,71 L306,100 L130,100 L130,320 L97,320 L97,100 L12,100 Z" />
+    <path class="t2"
+          d="M140,110 L306,110 L306,139 L221,139 L221,320 L188,320 L188,139 L140,139 Z" />
+  </g>
+</g>
+</svg>
